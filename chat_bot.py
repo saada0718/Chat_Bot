@@ -39,10 +39,6 @@ def find_node(final,person):
         elif check.data == person:
             break
     return check
-"""
-Put both of these functions in a try just in case the internet is not
-connected
-"""
 def google(search):
     webbrowser.open('https://www.google.com/search?q='+search)
     keyboard = Controller()
@@ -90,6 +86,10 @@ def go_to(search):
     if temp!=None:
             if temp.data == search:
                 webbrowser.open(temp.url)
+                correct_input = input("Was this the right website? If \"no\" then enter no otherwise press enter ")
+                if correct_input.lower() == "no":
+                    correct_url = input("Please enter the right url ")
+                    temp.url = correct_url
             else:
                 _go_to_helper(search)
     else:
